@@ -1,5 +1,6 @@
 import user from "./user";
 import contacts from "./contacts";
+import activeUserId from "./activeUserId";
 import { combineReducers } from "redux";
 
 // This is representative of the state
@@ -7,7 +8,8 @@ import { combineReducers } from "redux";
 // e.g. the user property will get state data from the user reducer
 const combinedReducers = combineReducers({
   user,
-  contacts
+  contacts,
+  activeUserId
 });
 
 export default combinedReducers;
