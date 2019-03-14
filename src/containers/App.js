@@ -12,9 +12,7 @@ const AppStyles = styled.div`
 `;
 
 const App = () => {
-  const {
-    contacts: { contacts }
-  } = store.getState();
+  const { contacts } = store.getState();
 
   return (
     <AppStyles>
