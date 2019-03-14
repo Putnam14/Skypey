@@ -6,6 +6,7 @@ import store from "../store";
 
 const AppStyles = styled.div`
   height: 100%;
+  max-height: 100vh;
   display: grid;
   grid-template-columns: auto 1fr;
   color: rgba(189, 189, 192, 1);
