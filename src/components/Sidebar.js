@@ -15,7 +15,6 @@ const SidebarStyles = styled.aside`
 `;
 
 const Sidebar = ({ contacts }) => {
-  console.log(contacts[0][1].name);
   return (
     <SidebarStyles>
       {contacts.map(contact => (
