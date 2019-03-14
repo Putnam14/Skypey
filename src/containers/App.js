@@ -12,12 +12,12 @@ const AppStyles = styled.div`
 `;
 
 const App = () => {
-  const { contacts } = store.getState();
+  const { contacts, user, activeUserId } = store.getState();
 
   return (
     <AppStyles>
       <Sidebar contacts={Object.entries(contacts)} />
-      <Main />
+      <Main user={user} activeUserId={activeUserId} />
     </AppStyles>
   );
 };
