@@ -10,9 +10,7 @@ const ChatWindow = ({ activeUserId }) => {
   const state = store.getState();
   const activeUser = state.contacts[activeUserId];
   const activeMessages = state.conversations[activeUserId];
-  const messages = Object.keys(activeMessages).map(
-    key => activeMessages[key].text
-  );
+  const messages = Object.keys(activeMessages).map(key => activeMessages[key]);
   return (
     <ChatStyles>
       <Header user={activeUser} />
