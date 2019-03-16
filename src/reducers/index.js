@@ -1,6 +1,7 @@
 import user from "./user";
 import contacts from "./contacts";
 import activeUserId from "./activeUserId";
+import conversations from "./conversations";
 import { combineReducers } from "redux";
 
 // This is representative of the state
@@ -9,7 +10,8 @@ import { combineReducers } from "redux";
 const combinedReducers = combineReducers({
   user,
   contacts,
-  activeUserId
+  activeUserId,
+  conversations
 });
 
 export default combinedReducers;
