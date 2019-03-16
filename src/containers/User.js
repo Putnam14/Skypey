@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { setActiveUserId } from "../actions";
+import store from "../store";
 
 const UserStyles = styled.div`
   display: grid;
@@ -34,10 +36,14 @@ const UserStyles = styled.div`
   }
 `;
 
+// handleUserClick will be invoked on page load, but returns a function to be invoked onClick
+const handleUserClick = user_id => () =>
+  store.dispatch(setActiveUserId(user_id));
+
 const User = ({ user }) => {
-  const { name, email, profile_pic, user_id, status } = user;
+  const { name, profile_pic, user_id, status } = user;
   return (
-    <UserStyles>
+    <UserStyles onClick={handleUserClick(user_id)}>
       <img src={profile_pic} alt={name} />
       <div className="user-details">
         <p className="user-name">{name}</p>
