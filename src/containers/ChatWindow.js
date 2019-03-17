@@ -4,7 +4,10 @@ import Chats from "../components/Chats";
 import Header from "../components/Header";
 import store from "../store";
 
-const ChatStyles = styled.div``;
+const ChatStyles = styled.div`
+  height: 100vh;
+  overflow-y: scroll;
+`;
 
 const ChatWindow = ({ activeUserId }) => {
   const state = store.getState();
