@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Chats from "../components/Chats";
 import Header from "../components/Header";
+import MessageInput from "./MessageInput";
 import store from "../store";
 
 const ChatStyles = styled.div`
@@ -14,10 +15,12 @@ const ChatWindow = ({ activeUserId }) => {
   const activeUser = state.contacts[activeUserId];
   const activeMessages = state.conversations[activeUserId];
   const messages = Object.keys(activeMessages).map(key => activeMessages[key]);
+  const typing = state.typing;
   return (
     <ChatStyles>
       <Header user={activeUser} />
       <Chats messages={messages} />
+      <MessageInput value={typing} />
     </ChatStyles>
   );
 };
