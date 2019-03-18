@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import store from "../store";
-import { setTypingValue } from "../actions";
+import { setTypingValue, sendMessage } from "../actions";
 
 const MessageInputStyles = styled.form`
   width: 80%;
@@ -18,15 +18,21 @@ const MessageInputStyles = styled.form`
   }
 `;
 
-const MessageInput = ({ value }) => {
+const MessageInput = () => {
+  const state = store.getState();
+  const { typing, activeUserId } = state;
   const handleChange = e => {
     store.dispatch(setTypingValue(e.target.value));
   };
+  const handleSubmit = e => {
+    e.preventDefault();
+    store.dispatch(sendMessage(typing, activeUserId));
+  };
   return (
-    <MessageInputStyles>
+    <MessageInputStyles onSubmit={handleSubmit}>
       <input
         onChange={handleChange}
-        value={value}
+        value={typing}
         placeholder="Write a message"
       />
     </MessageInputStyles>
