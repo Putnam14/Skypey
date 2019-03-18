@@ -30,14 +30,17 @@ const Chat = ({ message }) => {
   return <p className={is_user_msg ? "is_user_msg" : ""}>{text}</p>;
 };
 
-const Chats = ({ messages }) => {
-  return (
-    <ChatsStyles>
-      {messages.map(message => (
-        <Chat message={message} key={message.number} />
-      ))}
-    </ChatsStyles>
-  );
-};
+class Chats extends React.Component {
+  render() {
+    const { messages } = this.props;
+    return (
+      <ChatsStyles>
+        {messages.map(message => (
+          <Chat message={message} key={message.number} />
+        ))}
+      </ChatsStyles>
+    );
+  }
+}
 
 export default Chats;
