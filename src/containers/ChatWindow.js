@@ -15,12 +15,11 @@ const ChatWindow = ({ activeUserId }) => {
   const activeUser = state.contacts[activeUserId];
   const activeMessages = state.conversations[activeUserId];
   const messages = Object.keys(activeMessages).map(key => activeMessages[key]);
-  const typing = state.typing;
   return (
     <ChatStyles>
       <Header user={activeUser} />
       <Chats messages={messages} />
-      <MessageInput value={typing} />
+      <MessageInput />
     </ChatStyles>
   );
 };
